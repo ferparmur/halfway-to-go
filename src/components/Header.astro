@@ -37,8 +37,8 @@ const isHomepage = Astro.url.pathname === "/";
 <script>
 	document.querySelectorAll('[data-action="hamburger"]').forEach((button) => {
 		button.addEventListener('click', (e) => {
-			document.querySelector('.main-nav').classList.toggle('open');
-			document.querySelector('.open-nav-bg').classList.toggle('open');
+			document.querySelector('.main-nav')?.classList.toggle('open');
+			document.querySelector('.open-nav-bg')?.classList.toggle('open');
 		});
 	});
 </script>
