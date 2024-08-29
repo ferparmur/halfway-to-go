@@ -5,6 +5,8 @@
     --color-fg: var(--color-dark);
     --color-bg: var(--color-light);
 
+    --color-primary-dark: #003049;
+
     --h-font-family: "DM Serif Display", serif;
     --h-font-weight: 400;
 
@@ -12,7 +14,33 @@
     --p-font-weight: 400;
     --p-font-size: 18px;
 
-    --spacer-md: 15px
+    --spacer-md: 15px;
+
+    --container-width: 240px;
+    --extra-width: 280px;
+
+    @media all and (width >= 360px) {
+        --container-width: 320px;
+        --extra-width: 360px;
+    }
+
+    @media all and (width >= 390px) {
+        --container-width: 350px;
+        --extra-width: 390px;
+    }
+
+    @media all and (width >= 700px) {
+        --container-width: 660px;
+        --extra-width: 700px;
+    }
+
+    @media all and (width >= 768px) {
+        --extra-width: 768px;
+    }
+
+    @media all and (width >= 900px) {
+        --extra-width: 900px;
+    }
 }
 
 * {
@@ -46,3 +74,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-fg);
 }
 
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
