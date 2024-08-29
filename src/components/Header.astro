@@ -64,19 +64,6 @@ const isHomepage = Astro.url.pathname === "/";
 		text-decoration: none;
 	}
 
-	.hamburger-wrapper {
-		position: absolute;
-		top: var(--padding);
-		right: 0;
-		display: flex;
-		transform: translate3d(calc(100% - var(--hamburguer-button-width) - var(--padding) + 1px), 0, 0);
-		transition: transform .3s;
-
-		&.expanded {
-			transform: translate3d(0, 0, 0);
-		}
-	}
-
 	.hamburger-button {
 		width: var(--hamburguer-button-width);
 		height: var(--hamburguer-button-width);
