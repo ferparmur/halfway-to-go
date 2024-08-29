@@ -1,0 +1,138 @@
+---
+const isHomepage = Astro.url.pathname === "/";
+---
+
+<div class="site-navbar">
+	{
+		isHomepage ? (
+			<h1 class="site-title">Halfway<br> to go</h1>
+		) : (
+			<a href="/" class="site-title">
+				Halfway<br> to go
+			</a>
+		)
+	}
+
+	<button class="hamburger-button" data-action=hamburger>
+		<span></span>
+		<span></span>
+		<span></span>
+	</button>
+
+	<nav class="main-nav">
+		<ul>
+			<li><a href="/blog">Blog</a></li>
+			<li><a href="/destinations">Destinations</a></li>
+			<li><a href="/about">Who Am I?</a></li>
+			<li><a href="/about">Contact</a></li>
+			<li><a href="/">Instagram</a></li>
+		</ul>
+	</nav>
+
+	<div class="open-nav-bg" data-action=hamburger></div>
+
+</div>
+
+<script>
+	document.querySelectorAll('[data-action="hamburger"]').forEach((button) => {
+		button.addEventListener('click', (e) => {
+			document.querySelector('.main-nav')?.classList.toggle('open');
+			document.querySelector('.open-nav-bg')?.classList.toggle('open');
+		});
+	});
+</script>
+
+<style lang="scss">
+	.site-navbar {
+		--padding: var(--spacer-md);
+		--hamburguer-button-width: 27px;
+		--hamburguer-line-width: 4px;
+
+		padding: var(--padding);
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.site-title {
+		margin: 0;
+		text-transform: lowercase;
+		font-family: var(--h-font-family);
+		font-size: 1.5rem;
+		line-height: 1;
+		color: var(--color-fg);
+		text-decoration: none;
+	}
+
+	.hamburger-button {
+		appearance: none;
+		border: 0;
+		padding: 0;
+		background: none;
+
+		span {
+			display: block;
+			left: 0;
+			height: var(--hamburguer-line-width);
+			width:  var(--hamburguer-button-width);
+			background: var(--color-fg);
+			border-radius: var(--hamburguer-line-width);
+			margin-top: calc(var(--hamburguer-button-width) / 3 - (var(--hamburguer-line-width) / 2));
+
+			&:nth-child(1) {
+				margin-top: 0;
+			}
+		}
+	}
+
+
+	.main-nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: var(--color-light);
+		padding: var(--padding);
+		height: 100%;
+		width: 400px;
+		max-width: 80vw;
+		z-index: 2;
+		transform: translate3d(-100%,0,0);
+		transition: transform .3s;
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		li {
+			margin-bottom: var(--padding);
+			line-height: 1;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&.open {
+			transform: translate3d(0,0,0);
+		}
+	}
+
+	.open-nav-bg {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width:100%;
+		height: 100%;
+		appearance: none;
+		border: 0;
+		background: rgba(255,255,255,.3);
+		z-index: 1;
+		display: none;
+		backdrop-filter: blur(4px);
+
+		&.open {
+			display: block;
+		}
+	}
+</style>

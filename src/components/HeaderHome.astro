@@ -1,0 +1,56 @@
+---
+import NavBar from "./NavBar.astro";
+import { Image } from 'astro:assets';
+
+import heroImage from "../img/ala-kul.jpg"
+---
+
+<header class="site-header">
+	<NavBar />
+
+	<div class="hero-cover"></div>
+
+	<Image
+		src={heroImage}
+		alt=""
+		loading="eager"
+		formats={["avif", "webp"]}
+	/>
+
+	<h2>Dusty trails lead to<br> golden roads</h2>
+</header>
+
+<style>
+	.site-header {
+		height: 100vh;
+		--color-fg: var(--color-light);
+	}
+
+	.hero-cover {
+		position: absolute;
+		top: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100vh;
+		background: linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.2));;
+	}
+
+	img {
+		position: absolute;
+		top: 0;
+		z-index: -2;
+		width: 100%;
+		height: 100vh;
+		object-fit: cover;
+		background: var(--color-dark);
+	}
+
+	h2 {
+		margin: 25vh auto 0;
+		width: fit-content;
+		padding: var(--spacer-md);
+		text-transform: lowercase;
+		display: block;
+		font-size: 9vw;
+	}
+</style>

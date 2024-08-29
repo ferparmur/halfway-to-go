@@ -1,6 +1,9 @@
 :root {
-    --color-fg: #333;
-    --color-bg: #fff;
+    --color-dark: #333;
+    --color-light: #fff;
+
+    --color-fg: var(--color-dark);
+    --color-bg: var(--color-light);
 
     --h-font-family: "DM Serif Display", serif;
     --h-font-weight: 400;
@@ -8,6 +11,8 @@
     --p-font-family: "DM Sans", sans-serif;
     --p-font-weight: 400;
     --p-font-size: 18px;
+
+    --spacer-md: 15px
 }
 
 * {
@@ -38,5 +43,6 @@ h1, h2, h3, h4, h5, h6 {
     /*noinspection CssNoGenericFontName*/
     font-family: var(--h-font-family);
     font-weight: var(--h-font-weight);
+    color: var(--color-fg);
 }
 
