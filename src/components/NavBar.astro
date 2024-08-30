@@ -13,7 +13,7 @@ const isHomepage = Astro.url.pathname === "/";
 		)
 	}
 
-	<button class="hamburger-button" data-action=hamburger>
+	<button class="hamburger-button" data-action=hamburger aria-expanded="false" aria-label="Open menu">
 		<span></span>
 		<span></span>
 		<span></span>
@@ -29,13 +29,29 @@ const isHomepage = Astro.url.pathname === "/";
 		</ul>
 	</nav>
 
-	<div class="open-nav-bg" data-action=hamburger></div>
+	<button class="open-nav-bg" data-action=hamburger aria-expanded="false"></button>
 
 </div>
 
 <script>
-	document.querySelectorAll('[data-action="hamburger"]').forEach((button) => {
+	let isMenuOpen = false;
+
+	const buttons = document.querySelectorAll('[data-action="hamburger"]');
+
+	buttons.forEach((button) => {
 		button.addEventListener('click', (e) => {
+			isMenuOpen = !isMenuOpen;
+
+			if(isMenuOpen){
+				buttons.forEach((button) => {
+					button.setAttribute('aria-expanded', 'true');
+				});
+			} else {
+				buttons.forEach((button) => {
+					button.setAttribute('aria-expanded', 'false');
+				});
+			}
+
 			document.querySelector('.main-nav')?.classList.toggle('open');
 			document.querySelector('.open-nav-bg')?.classList.toggle('open');
 		});
