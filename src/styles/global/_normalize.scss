@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  scroll-behavior: smooth;
+}
+
+*:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem var(--color-secondary);
+}
+
+img,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+pre,
+code {
+  font-family: monospace;
+}
