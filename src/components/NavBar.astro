@@ -151,4 +151,33 @@ const isHomepage = Astro.url.pathname === "/";
 			display: block;
 		}
 	}
+
+	@media (min-width: 768px) {
+		[data-action=hamburger] {
+			display: none;
+		}
+
+		.main-nav {
+			transform: none;
+			background: none;
+			height: initial;
+			width: initial;
+			max-width: initial;
+			position: static;
+
+			li {
+				display: inline-block;
+				margin-right: var(--spacer-md);
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+
+			a {
+				color: var(--color-fg);
+				text-decoration: none;
+			}
+		}
+	}
 </style>

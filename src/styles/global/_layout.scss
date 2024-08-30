@@ -21,10 +21,12 @@
     }
 
     @media all and (width >= 768px) {
+        --container-width: 750px;
         --extra-width: 768px;
     }
 
     @media all and (width >= 900px) {
+        --container-width: 860px;
         --extra-width: 900px;
     }
 }
