@@ -2,7 +2,7 @@
 import NavBar from "./NavBar.astro";
 import { Image } from 'astro:assets';
 
-import heroImage from "../img/ala-kul.jpg"
+import heroImage from "../img/kyoto.jpg"
 ---
 
 <header class="site-header">
@@ -17,7 +17,7 @@ import heroImage from "../img/ala-kul.jpg"
 		formats={["avif", "webp"]}
 	/>
 
-	<h2 class="container">Dusty trails lead to<br> golden roads</h2>
+	<h2>yet another<br> travel blog</h2>
 </header>
 
 <style>
@@ -48,8 +48,19 @@ import heroImage from "../img/ala-kul.jpg"
 	h2 {
 		margin: 25vh auto 0;
 		padding: var(--spacer-md);
+		color: var(--color-fg);
 		text-transform: lowercase;
 		display: block;
-		font-size: 2rem;
+		font-size: 2.1rem;
+		width: fit-content;
+		line-height: 1.1;
+
+		@media (min-width: 576px) {
+			font-size: 7vw;
+		}
+
+		@media (min-width: 992px) {
+			font-size: 6.313rem;
+		}
 	}
 </style>
