@@ -2,7 +2,7 @@
 title: 'The Best Croissants In Paris'
 description: 'A guide to 7 of the best croissants in Paris'
 pubDate: 'Nov 25 2023'
-heroImage: '/blog-placeholder-3.jpg'
+heroImageCloudinary: 'croissant-tulleries'
 ---
 
 ## How did we rate the croissants?

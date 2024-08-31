@@ -1,11 +1,9 @@
 ---
-import BaseHead from '../components/head/BaseHead.astro';
-import Header from '../components/HeaderHome.astro';
-import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import IndexLayout from "../layouts/IndexLayout.astro";
-import FormattedDate from "../components/FormattedDate.astro"
-import {getCollection} from "astro:content";;
+import IndexLayout from '@layouts/IndexLayout.astro';
+import FormattedDate from '@components/FormattedDate.astro'
+import {getCollection} from 'astro:content';
+import { CldImage } from 'astro-cloudinary';
 
 const posts = (await getCollection('blog', ({ data }) => {
 	return data.draft !== true;
@@ -23,7 +21,17 @@ const posts = (await getCollection('blog', ({ data }) => {
 					<li>
 						<a href={`/blog/${post.slug}/`}>
 							<article>
-								<img width={720} height={360} src={post.data.heroImage} alt="" />
+								{post.data.heroImageCloudinary && (
+									<CldImage
+										src={post.data.heroImageCloudinary}
+										alt="A random image"
+										width="280"
+										height="280"
+										crop="fill"
+										quality="60"
+									/>
+								)}
+
 								<h3 class="title">{post.data.title}</h3>
 								<p class="date">
 									<FormattedDate date={post.data.pubDate} />

@@ -40,6 +40,8 @@ const isHomepage = Astro.url.pathname === "/";
 
 	buttons.forEach((button) => {
 		button.addEventListener('click', (e) => {
+			e.preventDefault();
+
 			isMenuOpen = !isMenuOpen;
 
 			if(isMenuOpen){
