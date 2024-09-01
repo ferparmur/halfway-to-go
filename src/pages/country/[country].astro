@@ -1,0 +1,21 @@
+---
+import {getCollection} from "astro:content";
+
+export async function getStaticPaths() {
+    const allPosts = (await getCollection('blog', ({ data }) =>
+        data.draft !== true
+    )).sort(
+        (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+    );
+
+    const allCountries = new Set(allPosts.map((post) => (post.data.countries)).flat());
+
+    return Array.from(allCountries, (country) => {
+        return { params: { country } };
+    })
+}
+
+const { country } = Astro.params;
+---
+
+Posts tagged with {country}
