@@ -1,18 +1,17 @@
 ---
 import NavBar from "./NavBar.astro";
-import { Image } from 'astro:assets';
 
-import heroImage from "../img/kyoto.jpg"
+import {CldImage} from "astro-cloudinary";
 ---
 
 <header class="site-header">
 	<div class="hero-cover"></div>
 
-	<Image
-		src={heroImage}
+	<CldImage
+		src="kyoto"
 		alt=""
-		loading="eager"
-		format="avif"
+		width="1920"
+		quality="50"
 	/>
 
 	<NavBar />
