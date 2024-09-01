@@ -1,9 +1,17 @@
 :root {
+    --spacer-sm: 10px;
     --spacer-md: 15px;
     --spacer-lg: 25px;
+    --spacer-xl: 40px;
+    --spacer-xxl: 60px;
 
     --container-width: 240px;
     --extra-width: 280px;
+
+    @media all and (width >= 330px) {
+        --container-width: 300px;
+        --extra-width: 320px;
+    }
 
     @media all and (width >= 360px) {
         --container-width: 320px;
@@ -29,10 +37,20 @@
         --container-width: 860px;
         --extra-width: 900px;
     }
+
+    @media all and (width >= 1100px) {
+        --container-width: 860px;
+        --extra-width: 1000px;
+    }
 }
 
 .container {
     width: var(--container-width);
+    margin: 0 auto;
+}
+
+.container-extra {
+    width: var(--extra-width);
     margin: 0 auto;
 }
 
