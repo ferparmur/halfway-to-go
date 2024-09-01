@@ -4,9 +4,10 @@
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "@layouts/*": ["./src/layouts/*"],
       "@components/*": ["./src/components/*"],
-      "@img/*": ["./src/img/*"]
+      "@img/*": ["./src/img/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@svg/*": ["./src/svg/*"]
     }
   }
 }
