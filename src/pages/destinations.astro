@@ -15,5 +15,9 @@ const allCountries = Array.from(new Set(allPosts.map((post) => (post.data.countr
 
 <PageLayout title="Destinations" description="All the Halfway To Go destinations. Browse all the countries where I've been.">
 	<h1>Destinations</h1>
-	<WorldMap countries={allCountries} />
+	<WorldMap
+		links={allCountries.map((contryCode) => (
+			{code: contryCode, link: "/fololo"}
+		))}
+	/>
 </PageLayout>

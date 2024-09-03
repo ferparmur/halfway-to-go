@@ -1,78 +1,24 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/head/BaseHead.astro';
-import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
+import HeaderPost from "../components/HeaderPost.astro";
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate } = Astro.props;
+const { title, description, pubDate, heroImageCloudinary } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
+		<BaseHead title={title} description={description} heroImageCloudinary={heroImageCloudinary} />
 	</head>
 
 	<body>
-		<Header />
+		<HeaderPost title={title} pubDate={pubDate} heroImageCloudinary={heroImageCloudinary} />
 		<main>
 			<article>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
-					</div>
+				<div class="content">
 					<slot />
 				</div>
 			</article>
@@ -80,3 +26,35 @@ const { title, description, pubDate, updatedDate } = Astro.props;
 		<Footer />
 	</body>
 </html>
+
+
+<style is:global lang="scss">
+	.content{
+		width: 100%;
+		& > * {
+			max-width: 700px;
+			padding: 0 var(--spacer-md);
+			margin: 0 auto;
+		}
+
+		h2 {
+			font-size: 3rem;
+			margin-top: 2.5rem;
+			margin-bottom: .5rem;
+
+			@media (min-width: 700px) {
+				margin-top: 3rem;
+			}
+		}
+
+		p {
+			font-size: 18px;
+			line-height: 1.5;
+			margin-bottom: 1.3em;
+
+			@media (min-width: 700px) {
+				font-size: 19px;
+			}
+		}
+	}
+</style>

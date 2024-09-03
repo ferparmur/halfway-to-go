@@ -1,28 +1,25 @@
 ---
 import NavBar from "./NavBar.astro";
-
-import {CldImage} from "astro-cloudinary";
+const { title, pubDate } = Astro.props;
 ---
 
 <header class="site-header">
 	<div class="hero-cover"></div>
 
-	<CldImage
-		src="kyoto"
-		alt=""
-		width={1920}
-		quality="50"
-	/>
-
 	<NavBar />
 
-	<h2>yet another<br> travel blog</h2>
+	<h1>{title}</h1>
 </header>
 
-<style>
+<style lang="scss">
 	.site-header {
 		height: 100vh;
 		--color-fg: var(--color-light);
+		overflow: hidden;
+
+		@media (min-width: 600px) {
+			height: 300px;
+		}
 	}
 
 	.hero-cover {
