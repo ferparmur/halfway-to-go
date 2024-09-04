@@ -23,4 +23,6 @@ My wife patiently sits with me waiting for the race to start. I'm quite nervous 
 5 minutes before the start, Race Director James Finnerty comes to stage. This year's race theme is film, and the story behind the route is that a certain famous Austrian bodybuilder-turned-movie-star has lost the script for his latest movie, _The Albanian Connection_. Each of the 180 participants in the race will need to pick up one line from the script in the first checkpoint, Bruges (we knew about this location beforehand, otherwise getting a seat in the Eurostar would have been impossible). 
 
 We'll then need to do some location scouting at the next checkpoint, and we can choose between:
-* The Contra Dam, in Switzerland, 
+* The Contra Dam, in Switzerland, where 007 does an impressive bungee jump stunt in the opening of _Goldeneye_.
+* The Plönlein in Rothenburg ob der Tauber, Germany, featured in _Chitty Chitty Bang Bang_
+* The iconic Oberbaum Bridge in Berlin, 
