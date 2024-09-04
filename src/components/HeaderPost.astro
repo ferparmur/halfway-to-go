@@ -2,7 +2,7 @@
 import NavBar from "./NavBar.astro";
 import { getImage } from "astro:assets";
 
-const { title, pubDate, heroImage } = Astro.props;
+const { title, heroImage } = Astro.props;
 const backgroundImage = await getImage({src: heroImage, width: 2560, format: 'webp'});
 ---
 

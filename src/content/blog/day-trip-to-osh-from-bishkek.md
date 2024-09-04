@@ -4,6 +4,6 @@ description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
 countries:
   - KG
 pubDate: Mar 21 2024
-heroImageCloudinary: osh-museum
+heroImage: ../../img/ventouris.jpg
 draft: true
 ---

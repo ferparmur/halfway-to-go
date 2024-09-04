@@ -1,8 +1,13 @@
 ---
 const countryPaths = await Astro.glob('./countryPaths/*.astro');
+
+interface Link {
+    code: string;
+    link: string;
+}
 const {links} = Astro.props;
 
-const countryLinks = {};
+const countryLinks: { [key: string]: Link } = {};
 for (let countryLink of links) {
     countryLinks[countryLink.code] = countryLink;
 }
@@ -14,8 +19,14 @@ for (let countryLink of links) {
     height="665.96301"
 >
     {
-        countryPaths.map((countryPath, i) =>{
-            const countryCode = countryPath.file.match(/([A-Z\-]*)\.astro/)[1];
+        countryPaths.map((countryPath) =>{
+            const match = countryPath.file.match(/([A-Z\-]*)\.astro/);
+
+            if (!match) {
+                throw new Error(`Invalid countryPath file: ${countryPath.file}`);
+            }
+            const countryCode = match[1] ;
+
             if(countryLinks.hasOwnProperty(countryCode)){
                 return (
                     <a href={countryLinks[countryCode].link} title={countryCode}>

@@ -5,7 +5,7 @@ pubDate: Nov 25 2023
 countries:
   - FR
   - AL
-heroImageCloudinary: croissant-tulleries
+heroImage: ../../img/ventouris.jpg
 draft: true
 ---
 

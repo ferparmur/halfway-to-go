@@ -11,7 +11,6 @@ const {fill,stroke,strokeWidth} = Astro.props;
 ---
 
 <path
-    title=\"$country_name\"
     id=\"$country_code\"
     fill={fill}
     stroke={stroke}
