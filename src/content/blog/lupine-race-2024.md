@@ -9,7 +9,7 @@ countries:
   - IT
   - AL
 pubDate: 2024-09-03
-heroImageCloudinary: ventouris
+heroImage: '../../img/ventouris.jpg'
 ---
 It's 10:30 AM on a sunny summer morning when my wife and I make it to the courtyard of St Martin-in-the-Fields, just next to Trafalgar Square in London. We're early and we took of the tube one stop early, in Embankment, taking the chance to buy an expensive coffee along the way. Once we arrive I'm reminded that my entry fee gave us access to refreshments, including coffee, for free. Oh well, the route hasn't already started and I'm already making costly mistakes.
 
@@ -17,5 +17,10 @@ We're waiting here until 11:45, when the 2024 edition of the Lupine Race starts.
 
 The first edition of the race took place in 2023, going from London to Istanbul, and I sadly only learnt about it after it had happened through [Simon Calder's chronicle in The Independent](https://www.independent.co.uk/travel/news-and-advice/race-europe-london-istanbul-public-transport-b2391611.html). I immediately searched the event online and signed up for the second edition, which was going to span the 1,175 mi / 1,892 km from London to Tirana.
 
-## Gearing Up
-My wife patiently sits with me waiting for the race to start. I'm quite nervous and while other racers start pouring in and meeting each other, and just silently contemplating the red envelope containing the race pack, which we are strictly prohibited to open until the race kicks off. In there, of course, are the locations of the intermediate checkpoints. Minutes before the starting time, a common friend of ours also comes in to wish me luck.
+## The Checkpoint Reveal
+My wife patiently sits with me waiting for the race to start. I'm quite nervous and while other racers start pouring in and meeting each other, and just silently contemplating the red envelope containing the race pack, which we are strictly prohibited to open until the race kicks off. In there, of course, are the locations of the intermediate checkpoints. Minutes before the starting time, a common friend of ours also comes in to wish me luck. 
+
+5 minutes before the start, Race Director James Finnerty comes to stage. This year's race theme is film, and the story behind the route is that a certain famous Austrian bodybuilder-turned-movie-star has lost the script for his latest movie, _The Albanian Connection_. Each of the 180 participants in the race will need to pick up one line from the script in the first checkpoint, Bruges (we knew about this location beforehand, otherwise getting a seat in the Eurostar would have been impossible). 
+
+We'll then need to do some location scouting at the next checkpoint, and we can choose between:
+* The Contra Dam, in Switzerland, 

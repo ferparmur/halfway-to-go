@@ -6,16 +6,16 @@ import HeaderPost from "../components/HeaderPost.astro";
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, heroImageCloudinary } = Astro.props;
+const { title, description, pubDate, heroImage } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} heroImageCloudinary={heroImageCloudinary} />
+		<BaseHead title={title} description={description}/>
 	</head>
 
 	<body>
-		<HeaderPost title={title} pubDate={pubDate} heroImageCloudinary={heroImageCloudinary} />
+		<HeaderPost title={title} pubDate={pubDate} heroImage={heroImage} />
 		<main>
 			<article>
 				<div class="content">

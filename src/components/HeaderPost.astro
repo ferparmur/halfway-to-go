@@ -1,9 +1,12 @@
 ---
 import NavBar from "./NavBar.astro";
-const { title, pubDate } = Astro.props;
+import { getImage } from "astro:assets";
+
+const { title, pubDate, heroImage } = Astro.props;
+const backgroundImage = await getImage({src: heroImage, width: 2560, format: 'webp'});
 ---
 
-<header class="site-header">
+<header class="post-header" style={`--background-image: url(${backgroundImage.src})`}>
 	<div class="hero-cover"></div>
 
 	<NavBar />
@@ -12,51 +15,19 @@ const { title, pubDate } = Astro.props;
 </header>
 
 <style lang="scss">
-	.site-header {
+	.post-header {
 		height: 100vh;
 		--color-fg: var(--color-light);
+		color: var(--color-fg);
 		overflow: hidden;
+		background:
+			linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.2)),
+			var(--background-image);
+		background-size: cover;
+		background-position: center;
 
 		@media (min-width: 600px) {
 			height: 300px;
-		}
-	}
-
-	.hero-cover {
-		position: absolute;
-		top: 0;
-		z-index: -1;
-		width: 100%;
-		height: 100vh;
-		background: linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.2));;
-	}
-
-	img {
-		position: absolute;
-		top: 0;
-		z-index: -2;
-		width: 100%;
-		height: 100vh;
-		object-fit: cover;
-		background: var(--color-dark);
-	}
-
-	h2 {
-		margin: 25vh auto 0;
-		padding: var(--spacer-md);
-		color: var(--color-fg);
-		text-transform: lowercase;
-		display: block;
-		font-size: 2.1rem;
-		width: fit-content;
-		line-height: 1.1;
-
-		@media (min-width: 576px) {
-			font-size: 7vw;
-		}
-
-		@media (min-width: 992px) {
-			font-size: 6.313rem;
 		}
 	}
 </style>

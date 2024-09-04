@@ -3,7 +3,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import IndexLayout from '@layouts/IndexLayout.astro';
 import FormattedDate from '@components/FormattedDate.astro'
 import {getCollection} from 'astro:content';
-import { CldImage } from 'astro-cloudinary';
+import { Image } from "astro:assets";
 
 const posts = (await getCollection('blog', ({ data }) => {
 	return data.draft !== true;
@@ -22,14 +22,11 @@ const posts = (await getCollection('blog', ({ data }) => {
 						<li>
 							<a href={`/blog/${post.slug}/`}>
 								<article>
-									{post.data.heroImageCloudinary && (
-										<CldImage
-											src={post.data.heroImageCloudinary}
-											alt="A random image"
-											width={280}
-											height={280}
-											crop="fill"
-											quality="60"
+									{post.data.heroImage && (
+										<Image
+											src={post.data.heroImage}
+											alt=""
+											width={560}
 											class="article-image"
 										/>
 									)}
@@ -120,7 +117,14 @@ const posts = (await getCollection('blog', ({ data }) => {
 		}
 
 		.article-image {
+			width: 280px;
+			aspect-ratio: 1;
+			object-fit: cover;
 			margin-bottom: var(--spacer-sm);
+
+			@media (min-width: 700px) {
+				margin-bottom: 0;
+			}
 		}
 
 		.article-details {
@@ -149,7 +153,7 @@ const posts = (await getCollection('blog', ({ data }) => {
 			color: var(--color-fg-softer);
 			margin-bottom: var(--spacer-md);
 
-			@media (min-width: 700px) {
+			@media (min-width: 900px) {
 				margin-bottom: var(--spacer-xl);
 			}
 		}
@@ -158,7 +162,7 @@ const posts = (await getCollection('blog', ({ data }) => {
 			text-align: right;
 			color: var(--color-primary);
 
-			@media (min-width: 700px) {
+			@media (min-width: 900px) {
 				margin-top: var(--spacer-xl);
 			}
 		}
