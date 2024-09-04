@@ -38,11 +38,12 @@ const { title, description, pubDate, heroImage } = Astro.props;
 		}
 
 		h2 {
-			font-size: 3rem;
+			font-size: 2.5rem;
 			margin-top: 2.5rem;
-			margin-bottom: .5rem;
+			margin-bottom: .7rem;
 
 			@media (min-width: 700px) {
+				font-size: 3rem;
 				margin-top: 3rem;
 			}
 		}
@@ -58,7 +59,7 @@ const { title, description, pubDate, heroImage } = Astro.props;
 		}
 
 		ul {
-			padding-left: calc(var(--spacer-md) * 2);
+			padding-left: var(--spacer-xl);
 		}
 	}
 </style>
