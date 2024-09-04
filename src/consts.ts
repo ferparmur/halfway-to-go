@@ -3,3 +3,4 @@
 
 export const SITE_TITLE = 'Halfway To Go';
 export const SITE_DESCRIPTION = 'Welcome to my website!';
+export const IMG_DIR = '/src/img';

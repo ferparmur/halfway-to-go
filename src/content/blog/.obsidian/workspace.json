@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lupine-race-2024.md",
+                "file": "lupine-race-2024.mdx",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lupine-race-2024.md",
+                "file": "lupine-race-2024.mdx",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "lupine-race-2024.md",
+                "file": "lupine-race-2024.mdx",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "lupine-race-2024.md"
+                "file": "lupine-race-2024.mdx"
               }
             }
           }
@@ -148,8 +148,14 @@
   },
   "active": "3fd3b8d9cb935660",
   "lastOpenFiles": [
+    "img/bruges-selfie.jpg",
+    "img/croissant-tulleries.jpg",
+    "img/osh-museum.jpg",
+    "img/ventouris.jpg",
+    "img",
     "the-best-croissants-in-paris.md",
     "lupine-race-2024.md",
+    "lupine-race-2024.mdx",
     "mini-interrail-night-trains-across-europe.md",
     "day-trip-to-osh-from-bishkek.md"
   ]
