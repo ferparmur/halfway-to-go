@@ -58,6 +58,18 @@ const { title, description, pubDate, heroImage } = Astro.props;
 			}
 		}
 
+		p > img {
+			margin: 0 calc(var(--spacer-md) * -1);
+			width: calc(100% + (var(--spacer-md) * 2));
+			max-width: calc(100% + (var(--spacer-md) * 2));
+
+			@media (min-width: 900px) {
+				margin: 0 calc(var(--spacer-xl) * -1);
+				width: calc(100% + (var(--spacer-xl) * 2));
+				max-width: calc(100% + (var(--spacer-xl) * 2));
+			}
+		}
+
 		ul {
 			padding-left: var(--spacer-xl);
 		}

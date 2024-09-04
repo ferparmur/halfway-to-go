@@ -66,10 +66,11 @@ At 16:38, we arrive at Brussels Midi, and I jump off the train, trying to overta
 
 Once aboard, I start to panic slightly as the departure time passes and the train stands still on the platform. Only five minutes later, however, the train leaves, and I realise I don't really have much cause for concern: I have slightly over an hour in Bruges, and the station is reasonably close to the town's main square, where the checkpoint is located.
 
-  
 It’s time to polish the final details of my route. I’ve decided to take the Italian route, passing through the checkpoint in Rimini and heading to Albania via a ferry from Bari. The overland route via Timișoara looks very interesting, but there doesn’t seem to be a reliable route to cross from Timișoara to Serbia, involving different buses and a shuttle across the border. As much as I try (and I will try a few times over the next day), I can’t find a route through the Balkans that is faster than the ferry. Which isn’t ideal, as I realise I can comfortably reach Bari by Monday afternoon, but what seems to be the only ferry departing that day doesn’t leave until 23:00. The hour-long journey passes quickly, though, and I'm still thinking about that when I realise we're about to reach Bruges.
 
 Getting off the train, I realise that I'm at the other end of the platform from the exit, and I am glad to have a lengthy connection in Bruges. I don't dawdle anyway, and run off the station in searching for the bus stop, where I'm quite lucky to catch a bus in less than a couple of minutes. After a sprint through the pedestrianised streets in the city centre, where I kinda feel like in a spy movie, passing through the hordes of tourist, I reach the checkpoint at 18:05. I take a minute though, to find Bob, the rep from Lupine travel waiting there, as I was expecting him to wear one of the race's bright red t-shirts. I get the script line safely copied into my notes app and make my way back to the train station.
+
+![Selfie at Bruges' Main Square](../../img/bruges-selfie.jpg)
 
 With the checkpoint cleared, and having almost an hour before my next train, I decide to walk back to the station and enjoy the city. I have been in Bruges before, but I'm still captivated by it's fairytale beauty and take my mind off the race while taking in the sights for the next half of an hour.
 
