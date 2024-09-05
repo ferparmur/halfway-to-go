@@ -6,10 +6,13 @@ import {IMG_DIR} from "../consts";
 const {caption, img} = Astro.props;
 const imgSrc = IMG_DIR + '/' + img;
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/img/*.{jpeg,jpg,png,gif}')
-console.log(images);
 if (!images[imgSrc]) throw new Error(`"${imgSrc}" does not exist in glob: "src/img/*.{jpeg,jpg,png,gif}"`);
 ---
 <figure>
-    <Image src={images[imgSrc]()} alt={caption} />
+    <Image
+        src={images[imgSrc]()}
+        alt={caption}
+        width={900}
+    />
     <figcaption>{caption}</figcaption>
 </figure>

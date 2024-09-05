@@ -30,7 +30,7 @@ const { title, description, pubDate, heroImage } = Astro.props;
 
 <style is:global lang="scss">
 	.content{
-		--paragraph-margin: 1.3em;
+		--paragraph-margin: 1.7rem;
 		--paragraph-max-width: 700px;
 		--paragraph-padding: var(--spacer-md);
 		--extra-wide-max-width: 800px;
@@ -55,12 +55,13 @@ const { title, description, pubDate, heroImage } = Astro.props;
 
 		h2 {
 			font-size: 2.5rem;
-			margin-top: 2.5rem;
-			margin-bottom: .7rem;
+			margin-top: calc(var(--paragraph-margin) * 3);
+			margin-bottom: var(--paragraph-margin);
+			line-height: 1.2;
 
 			@media (min-width: 700px) {
 				font-size: 3rem;
-				margin-top: 3rem;
+				margin-top: calc(var(--paragraph-margin) * 4);
 			}
 		}
 
@@ -86,7 +87,14 @@ const { title, description, pubDate, heroImage } = Astro.props;
 
 		figure {
 			padding: 0;
+			margin-top: calc(var(--paragraph-margin) * 2);
+			margin-bottom: calc(var(--paragraph-margin) * 2);
 			max-width: var(--extra-wide-max-width);
+
+			@media (min-width: 900px) {
+				margin-bottom: calc(var(--paragraph-margin) * 1.5);
+				max-width: var(--extra-wide-max-width);
+			}
 
 			img {
 				max-width: 100%;
@@ -97,6 +105,18 @@ const { title, description, pubDate, heroImage } = Astro.props;
 				font-size: .9em;
 				text-align: center;
 				padding: 0 var(--paragraph-padding);
+
+				@media (min-width: 450px) {
+					padding: 0 var(--spacer-lg) ;
+				}
+
+				@media (min-width: 700px) {
+					padding: 0 var(--spacer-xl);
+				}
+
+				@media (min-width: 900px) {
+					padding: 0 var(--spacer-xxl);
+				}
 			}
 		}
 	}
