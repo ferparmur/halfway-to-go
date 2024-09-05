@@ -8,6 +8,11 @@
     --container-width: 240px;
     --extra-width: 280px;
 
+    --paragraph-margin: 1.7rem;
+    --paragraph-max-width: 700px;
+    --paragraph-padding: var(--spacer-md);
+    --extra-wide-max-width: 800px;
+
     @media all and (width >= 330px) {
         --container-width: 300px;
         --extra-width: 320px;
@@ -36,6 +41,10 @@
     @media all and (width >= 900px) {
         --container-width: 860px;
         --extra-width: 900px;
+    }
+
+    @media all and (width >= 1000px) {
+        --extra-wide-max-width: 900px;
     }
 
     @media all and (width >= 1100px) {

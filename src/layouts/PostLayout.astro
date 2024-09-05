@@ -30,27 +30,29 @@ const { title, description, pubDate, heroImage } = Astro.props;
 
 <style is:global lang="scss">
 	.content{
-		--paragraph-margin: 1.7rem;
-		--paragraph-max-width: 700px;
-		--paragraph-padding: var(--spacer-md);
-		--extra-wide-max-width: 800px;
+		--content-font-size: 18px;
 
 		width: 100%;
-		font-size: 18px;
+		font-size: var(--content-font-size);
 		line-height: 1.5;
+		margin-bottom: var(--spacer-lg);
 
 		@media (min-width: 700px) {
-			font-size: 19px;
+			font-size: calc(var(--content-font-size) * 1.1);
+			margin-bottom: var(--spacer-xl);
 		}
 
 		@media (min-width: 1000px) {
 			--extra-wide-max-width: 900px;
+			line-height: 1.6;
+			margin-bottom: calc(var(--spacer-xxl) * 1.8);
 		}
 
 		& > * {
 			max-width: var(--paragraph-max-width);
 			padding: 0 var(--paragraph-padding);
 			margin: 0 auto var(--paragraph-margin);
+			content-visibility: auto;
 		}
 
 		h2 {
@@ -63,13 +65,21 @@ const { title, description, pubDate, heroImage } = Astro.props;
 				font-size: 3rem;
 				margin-top: calc(var(--paragraph-margin) * 4);
 			}
+
+			@media (min-width: 900px) {
+				font-size: 3.3rem;
+			}
 		}
 
 		ul, ol {
 			padding-left: var(--spacer-xl);
 
 			li {
-				margin-bottom: var(--paragraph-margin);
+				margin-bottom: calc(var(--paragraph-margin) * .5);
+
+				&:last-child {
+					margin-bottom: 0;
+				}
 			}
 		}
 

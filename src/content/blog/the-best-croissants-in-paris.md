@@ -1,11 +1,11 @@
 ---
-title: The Best Croissants In Paris
+title: The Ultimate Ranking of the Best Croissants in Paris
 description: A guide to 7 of the best croissants in Paris
-pubDate: Nov 25 2023
+pubDate: 2023/11/25
 countries:
   - FR
   - AL
-heroImage: ../../img/ventouris.jpg
+heroImage: ../../img/croissant-tulleries.jpg
 draft: true
 ---
 
