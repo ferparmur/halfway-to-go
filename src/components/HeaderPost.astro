@@ -2,7 +2,7 @@
 import NavBar from "./NavBar.astro";
 import { Image, getImage } from "astro:assets";
 
-const { title, heroImage } = Astro.props;
+const { title, heroImage, readingTime } = Astro.props;
 const backgroundImage = await getImage({src: heroImage, width: 2560, format: 'webp'});
 import fernandoThumbnail from "@img/fernando-thumbnail.jpg";
 ---
@@ -13,18 +13,29 @@ import fernandoThumbnail from "@img/fernando-thumbnail.jpg";
 		<h1>{title}</h1>
 
 		<div class="article-details">
-			<div class="article-detail author">
-				<Image src={fernandoThumbnail} alt="Profile picture of Fernando Paredes" width={256} />
-				<div class="text-wrapper">
-					<p class="label">Written by:</p>
-					<p class="value">Fernando Paredes</p>
+			<div class="article-details-group">
+				<div class="article-detail author">
+					<Image src={fernandoThumbnail} alt="Profile picture of Fernando Paredes" width={256} />
+					<div class="text-wrapper">
+						<p class="label">Written by:</p>
+						<p class="value">Fernando Paredes</p>
+					</div>
 				</div>
 			</div>
 
-			<div class="article-detail date">
-				<div class="text-wrapper">
-					<p class="label">Updated on:</p>
-					<p class="value">5 Sep 2024</p>
+			<div class="article-details-group">
+				<div class="article-detail date">
+					<div class="text-wrapper">
+						<p class="label">Updated on:</p>
+						<p class="value">5 Sep 2024</p>
+					</div>
+				</div>
+
+				<div class="article-detail reading-time">
+					<div class="text-wrapper">
+						<p class="label">Reading time:</p>
+						<p class="value">{readingTime} minutes</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -79,25 +90,58 @@ import fernandoThumbnail from "@img/fernando-thumbnail.jpg";
 		}
 
 		.article-details {
-			margin-top: var(--spacer-xxl);
+			margin: var(--spacer-xxl) auto 0;
 			display: flex;
 			justify-content: center;
+			padding: 0 var(--spacer-md);
+			flex-direction: column;
+			width: fit-content;
+
+			@media (min-width: 500px) {
+				flex-direction: row;
+			}
+
+			.article-details-group {
+				display: flex;
+				margin-bottom: var(--spacer-lg);
+				margin-right: 0;
+				width: fit-content;
+
+				@media (min-width: 500px) {
+					margin-right: var(--spacer-xl);
+
+					&:last-child {
+						margin-right: 0;
+					}
+				}
+			}
 
 			.article-detail {
 				display: flex;
 				margin-right: var(--spacer-xl);
+				width: fit-content;
+
+				@media (min-width: 500px) {
+					margin-right: var(--spacer-xl);
+				}
 
 				&:last-child {
 					margin-right: 0;
 				}
 
 				img {
-					width: 60px;
-					height: 60px;
+					width: 45px;
+					height: 45px;
 					border-radius: 60px;
 					border: 2px solid var(--color-fg);
 					flex-shrink: 0;
-					margin-right: var(--spacer-md);
+					margin-right: var(--spacer-sm);
+
+					@media (min-width: 500px) {
+						width: 60px;
+						height: 60px;
+						margin-right: var(--spacer-md);
+					}
 				}
 
 				.text-wrapper {

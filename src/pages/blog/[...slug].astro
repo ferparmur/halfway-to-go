@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
 import PostLayout from "../../layouts/PostLayout.astro";
+import wordsCounter from "word-counting";
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -13,8 +14,10 @@ type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
 const { Content } = await post.render();
+const wordCount = wordsCounter(post.body).wordsCount;
+const readingTime = Math.max(Math.round(wordCount/200), 1);
 ---
 
-<PostLayout {...post.data}>
+<PostLayout {...{wordCount, readingTime, ...post.data}}>
 	<Content />
 </PostLayout>
