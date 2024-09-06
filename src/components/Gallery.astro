@@ -1,0 +1,261 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from "astro:assets";
+import {IMG_DIR} from "../consts";
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/img/*.{jpeg,jpg,png,gif}')
+
+const {caption, imgs} = Astro.props;
+const fullImages = imgs.map((img) => {
+    const imgSrc = IMG_DIR + '/' + img.src;
+    if (!images[imgSrc]) throw new Error(`"${imgSrc}" does not exist in glob: "src/img/*.{jpeg,jpg,png,gif}"`);
+    return {
+        src: imgSrc,
+        alt: img.alt,
+    };
+});
+---
+<figure>
+    <div class={`gallery-container count${fullImages.length}`}>
+        {fullImages.map((img) => (
+            <Image
+                    src={images[img.src]()}
+                    alt={img.alt}
+                    width={900}
+            />
+        ))}
+    </div>
+
+    <figcaption>{caption}</figcaption>
+</figure>
+
+<style lang="scss" is:global>
+    .gallery-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        grid-gap: 10px;
+        margin-bottom: 10px;
+
+        & > * {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 1.3333;
+        }
+
+        &.count1 {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        &.count2 {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(1, 1fr);
+        }
+
+        &.count3 {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(1, 1fr);
+
+            & > *:nth-child(1){
+                grid-column: 1 / span 2;
+                grid-row: 1 / span 2;
+            }
+        }
+
+        &.count4 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &.count5 {
+            grid-template-rows: repeat(2, 1fr);
+
+            & > * {
+                aspect-ratio: 1;
+            }
+
+            & > *:nth-child(1){
+                grid-column: 1 / span 2;
+                grid-row: 1 / span 2;
+            }
+        }
+
+        &.count6 {
+            grid-template-rows: repeat(3, 1fr);
+
+            & > *:nth-child(1){
+                grid-column: 1 / span 2;
+                grid-row: 1 / span 2;
+            }
+            & > *:nth-child(2){
+                grid-column: 3 / span 2;
+                grid-row: 2 / span 2;
+            }
+        }
+
+        &.count7 {
+            grid-template-rows: repeat(2, 1fr);
+
+            & > *:nth-child(2){
+                grid-column-start: 2;
+                grid-row: 1 / span 2;
+            }
+        }
+
+        &.count8 {
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+
+            & > *:nth-child(1){
+                grid-column: 1 / span 3;
+                grid-row: 1 / span 3;
+            }
+
+            & > *:nth-child(2){
+                grid-column: 4 / span 3;
+                grid-row: 2 / span 3;
+            }
+        }
+
+        &.count9 {
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+
+            & > * {
+                aspect-ratio: 1;
+            }
+
+            & > *:nth-child(1){
+                grid-column: 1 / span 2;
+                grid-row: 1 / span 2;
+            }
+
+            & > *:nth-child(6){
+                grid-column: 3 / span 2;
+                grid-row: 2 / span 2;
+            }
+
+            & > *:nth-child(7){
+                grid-column: 5 / span 2;
+                grid-row: 1 / span 2;
+            }
+        }
+
+        &.count10 {
+            grid-template-rows: repeat(4, 1fr);
+        }
+
+        &.count11 {
+            grid-template-rows: repeat(5, 1fr);
+        }
+
+        &.count12 {
+            grid-template-rows: repeat(6, 1fr);
+        }
+
+        &.count13 {
+            grid-template-rows: repeat(4, 1fr);
+        }
+
+        &.count15 {
+            grid-template-rows: repeat(6, 1fr);
+        }
+
+        &.count20 {
+            grid-template-rows: repeat(9, 1fr);
+
+            & > *:nth-child(1){
+                grid-column: 1 / span 2;
+                grid-row: 1 / span 2;
+            }
+
+            & > *:nth-child(7){
+                grid-column: 2 / span 3;
+                grid-row: 3 / span 3;
+            }
+
+            & > *:nth-child(10){
+                grid-column: 1 / span 2;
+                grid-row: 6 / span 2;
+            }
+
+            & > *:nth-child(13){
+                grid-column: 3 / span 2;
+                grid-row: 7 / span 2;
+            }
+
+            & > *:nth-child(14){
+                grid-column: 1 / span 2;
+                grid-row: 8 / span 2;
+            }
+        }
+
+
+
+
+        &.count10 > *:nth-child(2){
+            grid-column: 3 / span 2;
+            grid-row: 1 / span 2;
+        }
+
+        &.count10 > *:nth-child(6){
+            grid-column: 1 / span 2;
+            grid-row: 3 / span 2;
+        }
+
+        &.count11 > *:nth-child(1){
+            grid-column: 1 / span 2;
+            grid-row: 1 / span 2;
+        }
+
+        &.count11 > *:nth-child(4){
+            grid-column: 3 / span 2;
+            grid-row: 2 / span 2;
+        }
+
+        &.count11 > *:nth-child(7){
+            grid-column: 1 / span 2;
+            grid-row: 4 / span 2;
+        }
+
+        &.count12 > *:nth-child(1){
+            grid-column: 1 / span 2;
+            grid-row: 1 / span 2;
+        }
+
+        &.count12 > *:nth-child(4){
+            grid-column: 3 / span 2;
+            grid-row: 2 / span 2;
+        }
+
+        &.count12 > *:nth-child(7){
+            grid-column: 1 / span 2;
+            grid-row: 4 / span 2;
+        }
+
+        &.count12 > *:nth-child(8){
+            grid-column: 3 / span 2;
+            grid-row: 4 / span 2;
+        }
+
+        &.count13 > *:nth-child(1){
+            grid-column: 1 / span 2;
+            grid-row: 1 / span 2;
+        }
+
+        &.count15 > *:nth-child(1){
+            grid-column: 1 / span 2;
+            grid-row: 1 / span 2;
+        }
+
+        &.count15 > *:nth-child(8){
+            grid-column: 3 / span 2;
+            grid-row: 3 / span 2;
+        }
+
+        &.count15 > *:nth-child(11){
+            grid-column: 1 / span 2;
+            grid-row: 5 / span 2;
+        }
+    }
+</style>
