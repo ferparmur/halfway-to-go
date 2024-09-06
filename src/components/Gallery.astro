@@ -5,8 +5,13 @@ import {IMG_DIR} from "../consts";
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/img/*.{jpeg,jpg,png,gif}')
 
+interface GalleryImage {
+    src: string;
+    alt: string;
+}
+
 const {caption, imgs} = Astro.props;
-const fullImages = imgs.map((img) => {
+const fullImages = imgs.map((img: GalleryImage) => {
     const imgSrc = IMG_DIR + '/' + img.src;
     if (!images[imgSrc]) throw new Error(`"${imgSrc}" does not exist in glob: "src/img/*.{jpeg,jpg,png,gif}"`);
     return {
@@ -17,7 +22,7 @@ const fullImages = imgs.map((img) => {
 ---
 <figure>
     <div class={`gallery-container count${fullImages.length}`}>
-        {fullImages.map((img) => (
+        {fullImages.map((img: GalleryImage) => (
             <Image
                     src={images[img.src]()}
                     alt={img.alt}
