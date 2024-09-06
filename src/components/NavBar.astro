@@ -101,6 +101,10 @@ const isHomepage = Astro.url.pathname === "/";
 				margin-top: 0;
 			}
 		}
+
+		@media print {
+			display: none;
+		}
 	}
 
 
@@ -116,6 +120,10 @@ const isHomepage = Astro.url.pathname === "/";
 		z-index: 2;
 		transform: translate3d(-100%,0,0);
 		transition: transform .3s;
+
+		@media print {
+			display: none;
+		}
 
 		ul {
 			list-style: none;
