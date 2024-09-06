@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "the-best-croissants-in-paris.md",
+                "file": "lupine-race-2024.mdx",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "the-best-croissants-in-paris.md",
+                "file": "lupine-race-2024.mdx",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "the-best-croissants-in-paris.md",
+                "file": "lupine-race-2024.mdx",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "the-best-croissants-in-paris.md"
+                "file": "lupine-race-2024.mdx"
               }
             }
           }
@@ -148,8 +148,8 @@
   },
   "active": "3fd3b8d9cb935660",
   "lastOpenFiles": [
-    "lupine-race-2024.mdx",
     "the-best-croissants-in-paris.md",
+    "lupine-race-2024.mdx",
     "img/bruges-selfie.jpg",
     "img/croissant-tulleries.jpg",
     "img/osh-museum.jpg",
