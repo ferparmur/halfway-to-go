@@ -69,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 254.5
   },
   "right": {
     "id": "08488c37d105846b",
@@ -148,6 +148,7 @@
   },
   "active": "3fd3b8d9cb935660",
   "lastOpenFiles": [
+    "lupine-race-2024.mdx~",
     "test.mdx",
     "test.mdx.md",
     "the-best-croissants-in-paris.md",

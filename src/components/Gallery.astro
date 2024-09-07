@@ -31,7 +31,9 @@ const fullImages = imgs.map((img: GalleryImage) => {
         ))}
     </div>
 
-    <figcaption>{caption}</figcaption>
+    {caption && (
+            <figcaption>{caption}</figcaption>
+    )}
 </figure>
 
 <style lang="scss" is:global>
