@@ -9,5 +9,8 @@ export default defineConfig({
 	integrations: [mdx(), sitemap()],
 	markdown: {
 		rehypePlugins: [[externalLink, { domain: "www.halfwaytogo.com" }]],
-	}
+	},
+	redirects: {
+		"/blog/lupine-race-2024/": "/lupine-race-2024/",
+	},
 });

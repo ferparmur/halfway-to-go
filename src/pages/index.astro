@@ -20,7 +20,7 @@ const posts = (await getCollection('blog', ({ data }) => {
 				{
 					posts.map((post) => (
 						<li>
-							<a href={`/blog/${post.slug}/`}>
+							<a href={`/${post.slug}/`}>
 								<article>
 									{post.data.heroImage && (
 										<Image
