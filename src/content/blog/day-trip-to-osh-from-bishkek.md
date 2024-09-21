@@ -1,9 +1,0 @@
----
-title: Day Trip to Osh from Bishkek
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis molestie commodo. Curabitur ornare maximus tortor a venenatis. Suspendisse a nibh laoreet justo interdum sollicitudin.
-countries:
-  - KG
-pubDate: Mar 21 2024
-heroImage: ../../img/ventouris.jpg
-draft: true
----

@@ -13,23 +13,25 @@ const isHomepage = Astro.url.pathname === "/";
 		)
 	}
 
-	<button class="hamburger-button" data-action=hamburger aria-expanded="false" aria-label="Open menu">
-		<span></span>
-		<span></span>
-		<span></span>
-	</button>
+	{false && (
+		<button class="hamburger-button" data-action=hamburger aria-expanded="false" aria-label="Open menu">
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
 
-	<nav class="main-nav">
-		<ul>
-			<li><a href="/blog">Blog</a></li>
-			<li><a href="/destinations">Destinations</a></li>
-			<li><a href="/about">Who Am I?</a></li>
-			<li><a href="/about">Contact</a></li>
-			<li><a href="/">Instagram</a></li>
-		</ul>
-	</nav>
+		<nav class="main-nav">
+			<ul>
+				<li><a href="/blog">Blog</a></li>
+				<li><a href="/destinations">Destinations</a></li>
+				<li><a href="/about">Who Am I?</a></li>
+				<li><a href="/about">Contact</a></li>
+				<li><a href="/">Instagram</a></li>
+			</ul>
+		</nav>
 
-	<button class="open-nav-bg" data-action=hamburger aria-expanded="false"></button>
+		<button class="open-nav-bg" data-action=hamburger aria-expanded="false"></button>
+	)}
 
 </div>
 
