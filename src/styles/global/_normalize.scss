@@ -16,8 +16,9 @@ body {
 }
 
 *:focus {
+  --color-focus: var(--color-secondary);
   outline: 0;
-  box-shadow: 0 0 0 0.2rem var(--color-secondary);
+  box-shadow: 0 0 0 0.2rem var(--color-focus);
 }
 
 img,
@@ -29,4 +30,16 @@ iframe {
 pre,
 code {
   font-family: monospace;
+}
+
+button {
+  display: block;
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  color: var(--color-fg);
+  font-family: var(--base-font-family);
+  font-size: var(--base-font-size);
 }
