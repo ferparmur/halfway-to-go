@@ -59,21 +59,20 @@ const fullImages = imgs.map((img: GalleryImage) => {
     document.querySelectorAll('.gallery-dialog-show').forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            const dialog = document.getElementById(button.dataset.dialogTarget);
+            const buttonElement = e.currentTarget as HTMLButtonElement
+            const dialog = document.getElementById(buttonElement?.dataset.dialogTarget  ?? '') as HTMLDialogElement;
 
-            dialog.showModal();
+            dialog?.showModal();
         });
     });
 
     document.querySelectorAll('.gallery-dialog-hide').forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            const dialog = button.closest('dialog');
-            dialog.close();
+            const dialog = button.closest('dialog') as HTMLDialogElement;
+            dialog?.close();
         });
     });
-
-    document.querySelectorAll('.gallery-lightbox-dialog').forEach(button => {});
 </script>
 
 <style lang="scss" is:global>
