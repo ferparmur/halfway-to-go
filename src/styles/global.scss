@@ -1,25 +1,7 @@
+@import "global/colors";
 @import "global/normalize";
 @import "global/layout";
 @import "global/typography";
-
-:root {
-    --color-dark: #333;
-    --color-dark-soft: #555;
-    --color-dark-softer: #909090;
-    --color-dark-softest: #ccc;
-    --color-light: #fff;
-
-    --color-fg: var(--color-dark);
-    --color-fg-soft: var(--color-dark-soft);
-    --color-fg-softer: var(--color-dark-softer);
-    --color-fg-softest: var(--color-dark-softest);
-    --color-bg: var(--color-light);
-
-    --color-primary: #073C8B;
-    --color-primary-dark: #003049;
-
-    --color-secondary: #FCBF49;
-}
 
 * {
     box-sizing: border-box;
