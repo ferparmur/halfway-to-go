@@ -16,8 +16,9 @@ const post = Astro.props;
 const { Content } = await post.render();
 const wordCount = wordsCounter(post.body).wordsCount;
 const readingTime = Math.max(Math.round(wordCount/200), 1);
+const ogImage = `/open-graph/${post.slug}.png`
 ---
 
-<PostLayout {...{wordCount, readingTime, ...post.data}}>
+<PostLayout {...{wordCount, readingTime, ogImage, ...post.data}}>
 	<Content />
 </PostLayout>

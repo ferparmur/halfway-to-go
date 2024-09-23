@@ -8,12 +8,12 @@ type Props = CollectionEntry<'blog'>['data'] & {
 	readingTime: number;
 };
 
-const { title, description, pubDate, heroImage, readingTime } = Astro.props;
+const { title, description, pubDate, heroImage, ogImage, readingTime } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description}/>
+		<BaseHead title={title} description={description} image={ogImage} />
 	</head>
 
 	<body>
