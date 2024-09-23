@@ -20,8 +20,6 @@ export const GET: APIRoute = async (props) => {
     const fontData: ArrayBuffer = await fontFile.arrayBuffer();
     const backgroundImage = await getImage({src: props.props.data.heroImage, width: 1200, format: 'webp'});
 
-    console.log(props);
-
     return await satoriAstroOG({
         template: html`
             <div style="display: flex; justify-content: center; align-items:center; font-family: 'DM Serif Display'; height: 100%; color: #fff; background: orange">
