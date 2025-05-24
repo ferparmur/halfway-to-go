@@ -15,9 +15,10 @@ type Props = CollectionEntry<'blog'>;
 const post = Astro.props;
 const { Content } = await post.render();
 const wordCount = wordsCounter(post.body).wordsCount;
-const readingTime = Math.max(Math.round(wordCount/200), 1);
+const readingTime = Math.max(Math.round(wordCount/300), 1);
 ---
 
 <PostLayout {...{wordCount, readingTime, ...post.data}}>
+	{wordCount}
 	<Content />
 </PostLayout>

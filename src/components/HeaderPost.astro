@@ -3,7 +3,6 @@ import NavBar from "./NavBar.astro";
 import { Image, getImage } from "astro:assets";
 
 const { title, heroImage, pubDate, readingTime } = Astro.props;
-console.log(Astro.props);
 const backgroundImage = await getImage({src: heroImage, width: 2560, format: 'webp'});
 import fernandoThumbnail from "@img/fernando-thumbnail.jpg";
 import FormattedDate from "./FormattedDate.astro";
