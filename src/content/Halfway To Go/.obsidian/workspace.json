@@ -16,10 +16,27 @@
                 "file": "lupine-race-2024.mdx",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "lupine-race-2024"
+            }
+          },
+          {
+            "id": "4250ae6cd5a6427c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "lupine-race-2024.mdx",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "lupine-race-2024"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -39,7 +56,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -54,7 +73,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -62,7 +83,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -93,7 +116,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for lupine-race-2024"
             }
           },
           {
@@ -105,7 +130,9 @@
                 "file": "lupine-race-2024.mdx",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from lupine-race-2024"
             }
           },
           {
@@ -116,7 +143,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -126,7 +155,9 @@
               "type": "outline",
               "state": {
                 "file": "lupine-race-2024.mdx"
-              }
+              },
+              "icon": "lucide-list",
+              "title": "Outline of lupine-race-2024"
             }
           }
         ]
@@ -146,13 +177,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "3fd3b8d9cb935660",
+  "active": "4250ae6cd5a6427c",
   "lastOpenFiles": [
+    "lupine-race-2025.md",
+    "lupine-race-2024.mdx",
     "test.mdx",
     "text.mdx",
     "test.md",
     "().md",
-    "lupine-race-2024.mdx",
     "lupine-race-2024.mdx~",
     "test.mdx.md",
     "the-best-croissants-in-paris.md",

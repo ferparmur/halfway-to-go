@@ -2,9 +2,11 @@
 import NavBar from "./NavBar.astro";
 import { Image, getImage } from "astro:assets";
 
-const { title, heroImage, readingTime } = Astro.props;
+const { title, heroImage, pubDate, readingTime } = Astro.props;
+console.log(Astro.props);
 const backgroundImage = await getImage({src: heroImage, width: 2560, format: 'webp'});
 import fernandoThumbnail from "@img/fernando-thumbnail.jpg";
+import FormattedDate from "./FormattedDate.astro";
 ---
 
 <header class="post-header" style={`--background-image: url(${backgroundImage.src})`}>
@@ -27,7 +29,7 @@ import fernandoThumbnail from "@img/fernando-thumbnail.jpg";
 				<div class="article-detail date">
 					<div class="text-wrapper">
 						<p class="label">Updated on:</p>
-						<p class="value">5 Sep 2024</p>
+						<p class="value"><FormattedDate date={pubDate} /></p>
 					</div>
 				</div>
 
