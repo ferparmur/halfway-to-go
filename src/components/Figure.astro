@@ -3,7 +3,7 @@ import type { ImageMetadata } from 'astro';
 import { Image } from "astro:assets";
 import {IMG_DIR} from "../consts";
 
-const {caption, img, alt} = Astro.props;
+const {caption, img, alt, width} = Astro.props;
 const imgSrc = IMG_DIR + '/' + img;
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/img/*.{jpeg,jpg,png,gif}')
 if (!images[imgSrc]) throw new Error(`"${imgSrc}" does not exist in glob: "src/img/*.{jpeg,jpg,png,gif}"`);
@@ -12,7 +12,7 @@ if (!images[imgSrc]) throw new Error(`"${imgSrc}" does not exist in glob: "src/i
     <Image
         src={images[imgSrc]()}
         alt={alt ?? caption}
-        width={1800}
+        width={width ?? 1800}
     />
     <figcaption>{caption}</figcaption>
 </figure>

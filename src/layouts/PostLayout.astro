@@ -103,6 +103,7 @@ const { title, description, pubDate, heroImage, readingTime } = Astro.props;
 			margin-top: calc(var(--paragraph-margin) * 2);
 			margin-bottom: calc(var(--paragraph-margin) * 2);
 			max-width: var(--extra-wide-max-width);
+			text-align: center;
 
 			@media (min-width: 900px) {
 				margin-bottom: calc(var(--paragraph-margin) * 1.5);
@@ -116,7 +117,6 @@ const { title, description, pubDate, heroImage, readingTime } = Astro.props;
 			figcaption {
 				color: var(--color-fg-soft);
 				font-size: .9em;
-				text-align: center;
 				padding: 0 var(--paragraph-padding);
 
 				@media (min-width: 450px) {
