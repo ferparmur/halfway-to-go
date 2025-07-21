@@ -15,4 +15,14 @@
     --color-primary-dark: #003049;
 
     --color-secondary: #FCBF49;
+
+    @media (prefers-color-scheme: dark) {
+        --color-fg: #ededed;
+        --color-fg-soft: var(--color-dark-softest);
+        --color-fg-softer: var(--color-dark-softer);
+        --color-fg-softest: var(--color-dark-soft);
+        --color-bg: #171717;
+
+        --color-primary: #83aff3;
+    }
 }
