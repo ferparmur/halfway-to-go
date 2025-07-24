@@ -2,44 +2,51 @@
 import NavBar from "./NavBar.astro";
 import { getImage } from "astro:assets";
 
-import heroImage from '../img/kyoto.jpg';
-const backgroundImage = await getImage({src: heroImage, width: 2560, format: 'webp'});
+import heroImage from "../img/kyoto.jpg";
+const backgroundImage = await getImage({
+  src: heroImage,
+  width: 2560,
+  format: "webp",
+});
 ---
 
-<header class="site-header" style={`--background-image: url(${backgroundImage.src})`}>
-	<div class="hero-cover" ></div>
+<header
+  class="site-header"
+  style={`--background-image: url(${backgroundImage.src})`}
+>
+  <div class="hero-cover"></div>
 
-	<NavBar />
+  <NavBar />
 
-	<h2>yet another<br> travel blog</h2>
+  <h2>yet another<br /> travel blog</h2>
 </header>
 
 <style>
-	.site-header {
-		height: 100vh;
-		--color-fg: var(--color-light);
-		background:
-			linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.2)),
-			var(--background-image);
-		background-size: cover;
-	}
+  .site-header {
+    height: 100vh;
+    --color-fg: var(--color-light);
+    background:
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
+      var(--background-image);
+    background-size: cover;
+  }
 
-	h2 {
-		margin: 25vh auto 0;
-		padding: var(--spacer-md);
-		color: var(--color-fg);
-		text-transform: lowercase;
-		display: block;
-		font-size: 2.1rem;
-		width: fit-content;
-		line-height: 1.1;
+  h2 {
+    margin: 25vh auto 0;
+    padding: var(--spacer-md);
+    color: var(--color-fg);
+    text-transform: lowercase;
+    display: block;
+    font-size: 2.1rem;
+    width: fit-content;
+    line-height: 1.1;
 
-		@media (min-width: 576px) {
-			font-size: 7vw;
-		}
+    @media (min-width: 576px) {
+      font-size: 7vw;
+    }
 
-		@media (min-width: 992px) {
-			font-size: 6.313rem;
-		}
-	}
+    @media (min-width: 992px) {
+      font-size: 6.313rem;
+    }
+  }
 </style>

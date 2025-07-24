@@ -7,53 +7,51 @@ import { visit } from "unist-util-visit";
 import type { Element } from "hast";
 
 interface Options {
-    domain: string;
+  domain: string;
 }
 
 export const externalLink: RehypePlugin = (options?: Options) => {
-    const siteDomain = options?.domain ?? "";
+  const siteDomain = options?.domain ?? "";
 
-    return (tree) => {
-        visit(tree, (node) => {
-            if (node.type != "element") {
-                return;
-            }
+  return (tree) => {
+    visit(tree, (node) => {
+      if (node.type != "element") {
+        return;
+      }
 
-            const element = node as Element;
+      const element = node as Element;
 
-            if (!isAnchor(element)) {
-                return;
-            }
+      if (!isAnchor(element)) {
+        return;
+      }
 
-            const url = getUrl(element);
+      const url = getUrl(element);
 
-            if (isExternal(url, siteDomain)) {
-                element.properties!["target"] = "_blank";
-                element.properties!["rel"] = "noopener nofollow";
-            }
-        });
-    };
+      if (isExternal(url, siteDomain)) {
+        element.properties!["target"] = "_blank";
+        element.properties!["rel"] = "noopener nofollow";
+      }
+    });
+  };
 };
 
 const isAnchor = (element: Element) =>
-    element.tagName == "a" &&
-    element.properties &&
-    "href" in element.properties;
+  element.tagName == "a" && element.properties && "href" in element.properties;
 
 const getUrl = (element: Element) => {
-    if (!element.properties) {
-        return "";
-    }
+  if (!element.properties) {
+    return "";
+  }
 
-    const url = element.properties["href"];
+  const url = element.properties["href"];
 
-    if (!url) {
-        return "";
-    }
+  if (!url) {
+    return "";
+  }
 
-    return url.toString();
+  return url.toString();
 };
 
 const isExternal = (url: string, domain: string) => {
-    return url.startsWith("http") && !url.includes(domain);
+  return url.startsWith("http") && !url.includes(domain);
 };
