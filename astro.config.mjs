@@ -8,7 +8,7 @@ export default defineConfig({
   site: "https://www.halfwaytogo.com",
   image: {
     responsiveStyles: true,
-    layout: 'constrained',
+    layout: "constrained",
   },
   integrations: [mdx(), sitemap()],
   markdown: {
