@@ -6,6 +6,10 @@ import { externalLink } from "./src/externalLink.ts";
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.halfwaytogo.com",
+  image: {
+    responsiveStyles: true,
+    layout: 'constrained',
+  },
   integrations: [mdx(), sitemap()],
   markdown: {
     rehypePlugins: [[externalLink, { domain: "www.halfwaytogo.com" }]],
