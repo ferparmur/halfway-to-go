@@ -1,42 +1,40 @@
 ---
-const countryPaths = await Astro.glob('./countryPaths/*.astro');
+const countryPaths = await Astro.glob("./countryPaths/*.astro");
 
 interface Link {
-    code: string;
-    link: string;
+  code: string;
+  link: string;
 }
-const {links} = Astro.props;
+const { links } = Astro.props;
 
 const countryLinks: { [key: string]: Link } = {};
 for (let countryLink of links) {
-    countryLinks[countryLink.code] = countryLink;
+  countryLinks[countryLink.code] = countryLink;
 }
 ---
 
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="1009.6727"
-    height="665.96301"
->
-    {
-        countryPaths.map((countryPath) =>{
-            const match = countryPath.file.match(/([A-Z\-]*)\.astro/);
+<svg xmlns="http://www.w3.org/2000/svg" width="1009.6727" height="665.96301">
+  {
+    countryPaths.map((countryPath) => {
+      const match = countryPath.file.match(/([A-Z\-]*)\.astro/);
 
-            if (!match) {
-                throw new Error(`Invalid countryPath file: ${countryPath.file}`);
-            }
-            const countryCode = match[1] ;
+      if (!match) {
+        throw new Error(`Invalid countryPath file: ${countryPath.file}`);
+      }
+      const countryCode = match[1];
 
-            if(countryLinks.hasOwnProperty(countryCode)){
-                return (
-                    <a href={countryLinks[countryCode].link} title={countryCode}>
-                        <countryPath.default fill="#003049" stroke="#aaa" strokeWidth=".9" />
-                    </a>
-                )
-            }
-            return (
-                <countryPath.default fill="#ddd" stroke="#aaa" strokeWidth=".9"/>
-            )
-        })
-    }
+      if (countryLinks.hasOwnProperty(countryCode)) {
+        return (
+          <a href={countryLinks[countryCode].link} title={countryCode}>
+            <countryPath.default
+              fill="#003049"
+              stroke="#aaa"
+              strokeWidth=".9"
+            />
+          </a>
+        );
+      }
+      return <countryPath.default fill="#ddd" stroke="#aaa" strokeWidth=".9" />;
+    })
+  }
 </svg>

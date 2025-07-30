@@ -1,17 +1,19 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import '../../styles/global.scss';
+import "../../styles/global.scss";
+
+import { AstroFont } from "astro-font";
 
 interface Props {
-	title: string;
-	description: string;
-	image?: string;
+  title: string;
+  description: string;
+  image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -42,8 +44,52 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-
 <!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<AstroFont
+  config={[
+    {
+      name: "DM Sans",
+      src: [
+        {
+          style: "normal",
+          weight: "400",
+          path: "https://fonts.gstatic.com/s/dmsans/v16/rP2Yp2ywxg089UriI5-g7M8btVsD8Ck0q7u0-K6z9mXg.woff2",
+        },
+      ],
+      preload: true,
+      display: "swap",
+      selector: "body",
+      fallback: "sans-serif",
+    },
+
+    {
+      name: "DM Sans",
+      src: [
+        {
+          style: "normal",
+          weight: "700",
+          path: "https://fonts.gstatic.com/s/dmsans/v16/rP2Yp2ywxg089UriI5-g7M8btVsD8CnTrLu0-K6z9mXg.woff2",
+        },
+      ],
+      preload: true,
+      display: "swap",
+      selector: "body",
+      fallback: "sans-serif",
+    },
+
+    {
+      name: "DM Serif Display",
+      src: [
+        {
+          style: "normal",
+          weight: "400",
+          path: "https://fonts.gstatic.com/s/dmserifdisplay/v16/-nFnOHM81r4j6k0gjAW3mujVU2B2G_Bx0vrx52g.woff2",
+        },
+      ],
+      preload: true,
+      display: "swap",
+      selector: "body",
+      fallback: "serif",
+    },
+  ]}
+/>

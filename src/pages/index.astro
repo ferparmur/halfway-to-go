@@ -1,170 +1,166 @@
 ---
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import IndexLayout from '@layouts/IndexLayout.astro';
-import FormattedDate from '@components/FormattedDate.astro'
-import {getCollection} from 'astro:content';
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import IndexLayout from "@layouts/IndexLayout.astro";
+import FormattedDate from "@components/FormattedDate.astro";
+import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 
-const posts = (await getCollection('blog', ({ data }) => {
-	return data.draft !== true;
-})).sort(
-(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const posts = (
+  await getCollection("blog", ({ data }) => {
+    return data.draft !== true;
+  })
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <IndexLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-	<section class="home-section">
-		<h2 class="section-title">Latest Articles</h2>
-		<div class="container">
-			<ul class="article-list">
-				{
-					posts.map((post) => (
-						<li>
-							<a href={`/${post.slug}/`}>
-								<article>
-									{post.data.heroImage && (
-										<Image
-											src={post.data.heroImage}
-											alt=""
-											width={560}
-											class="article-image"
-										/>
-									)}
+  <section class="home-section">
+    <h2 class="section-title">Latest Articles</h2>
+    <div class="container">
+      <ul class="article-list">
+        {
+          posts.map((post) => (
+            <li>
+              <a href={`/${post.slug}/`}>
+                <article>
+                  {post.data.heroImage && (
+                    <Image
+                      src={post.data.heroImage}
+                      alt=""
+                      width={560}
+                      class="article-image"
+                    />
+                  )}
 
-									<div class="article-details">
-										<h3 class="title">{post.data.title}</h3>
+                  <div class="article-details">
+                    <h3 class="title">{post.data.title}</h3>
 
-										<p class="meta">
-											<FormattedDate date={post.data.pubDate} />
-										</p>
+                    <p class="meta">
+                      <FormattedDate date={post.data.pubDate} />
+                    </p>
 
-										<p class="description">
-											{post.data.description}
-										</p>
+                    <p class="description">{post.data.description}</p>
 
-										<p class="continue-reading">
-											Continue reading →
-										</p>
-									</div>
-								</article>
-							</a>
-						</li>
-					))
-				}
-			</ul>
-		</div>
-	</section>
+                    <p class="continue-reading">Continue reading →</p>
+                  </div>
+                </article>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
 </IndexLayout>
 
 <style lang="scss">
-	.section-title {
-		font-size: 3rem;
-		text-transform: lowercase;
-		color: var(--color-primary-dark);
-		width: var(--container-width);
-		margin: 2rem auto;
+  .section-title {
+    font-size: 3rem;
+    text-transform: lowercase;
+    color: var(--color-primary-dark);
+    width: var(--container-width);
+    margin: 2rem auto;
 
-		@media (min-width: 700px) {
-			margin: 4rem auto 3rem;
-			font-size: 4rem;
-		}
+    @media (min-width: 700px) {
+      margin: 4rem auto 3rem;
+      font-size: 4rem;
+    }
 
-		@media (min-width: 900px) {
-			margin: 2rem auto 3rem;
-			font-size: 5rem;
-		}
+    @media (min-width: 900px) {
+      margin: 2rem auto 3rem;
+      font-size: 5rem;
+    }
 
-		@media (min-width: 1100px) {
-			width: var(--extra-width);
-			margin: 6rem auto 4rem;
-			font-size: 7rem;
-		}
-	}
+    @media (min-width: 1100px) {
+      width: var(--extra-width);
+      margin: 6rem auto 4rem;
+      font-size: 7rem;
+    }
+  }
 
-	.article-list {
-		list-style: none;
-		margin: 0 auto;
-		padding: 0;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
+  .article-list {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
-		a {
-			color: var(--color-fg);
-			text-decoration: none;
-			display: block;
-		}
+    a {
+      color: var(--color-fg);
+      text-decoration: none;
+      display: block;
+    }
 
-		li {
-			width: 280px;
-			margin: 0 0 var(--spacer-xxl);
-			max-width: 100%;
+    li {
+      width: 280px;
+      margin: 0 0 var(--spacer-xxl);
+      max-width: 100%;
 
-			@media (min-width: 700px) {
-				width: 100%;
-			}
-		}
+      @media (min-width: 700px) {
+        width: 100%;
+      }
+    }
 
-		article {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
+    article {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
 
-			@media (min-width: 700px) {
-				flex-wrap: nowrap;
-				align-items: center;
-			}
-		}
+      @media (min-width: 700px) {
+        flex-wrap: nowrap;
+        align-items: center;
+      }
+    }
 
-		.article-image {
-			width: 280px;
-			aspect-ratio: 1;
-			object-fit: cover;
-			margin-bottom: var(--spacer-sm);
+    .article-image {
+      width: 280px;
+      aspect-ratio: 1;
+      object-fit: cover;
+      margin-bottom: var(--spacer-sm);
 
-			@media (min-width: 700px) {
-				margin-bottom: 0;
-			}
-		}
+      @media (min-width: 700px) {
+        margin-bottom: 0;
+      }
+    }
 
-		.article-details {
-			@media (min-width: 700px) {
-				margin-left: var(--spacer-lg);
-				width: 100%;
-			}
+    .article-details {
+      @media (min-width: 700px) {
+        margin-left: var(--spacer-lg);
+        width: 100%;
+      }
 
-			@media (min-width: 900px) {
-				margin-left: var(--spacer-xl);
-			}
-		}
+      @media (min-width: 900px) {
+        margin-left: var(--spacer-xl);
+      }
+    }
 
-		.title {
-			font-size: 1.8rem;
-			margin: 0 0 var(--spacer-sm);
+    .title {
+      font-size: 1.8rem;
+      margin: 0 0 var(--spacer-sm);
 
-			@media (min-width: 900px) {
-				font-size: 2.1rem;
-			}
-		}
+      @media (min-width: 900px) {
+        font-size: 2.1rem;
+      }
+    }
 
-		.meta {
-			text-transform: uppercase;
-			font-size: .85rem;
-			color: var(--color-fg-softer);
-			margin-bottom: var(--spacer-md);
+    .meta {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      color: var(--color-fg-softer);
+      margin-bottom: var(--spacer-md);
 
-			@media (min-width: 900px) {
-				margin-bottom: var(--spacer-xl);
-			}
-		}
+      @media (min-width: 900px) {
+        margin-bottom: var(--spacer-xl);
+      }
+    }
 
-		.continue-reading {
-			text-align: right;
-			color: var(--color-primary);
+    .continue-reading {
+      text-align: right;
+      color: var(--color-primary);
 
-			@media (min-width: 900px) {
-				margin-top: var(--spacer-xl);
-			}
-		}
-	}
+      @media (min-width: 900px) {
+        margin-top: var(--spacer-xl);
+      }
+    }
+  }
 </style>

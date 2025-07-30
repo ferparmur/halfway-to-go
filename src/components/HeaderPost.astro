@@ -2,170 +2,183 @@
 import NavBar from "./NavBar.astro";
 import { Image, getImage } from "astro:assets";
 
-const { title, heroImage, readingTime } = Astro.props;
-const backgroundImage = await getImage({src: heroImage, width: 2560, format: 'webp'});
+const { title, heroImage, pubDate, readingTime } = Astro.props;
+const backgroundImage = await getImage({
+  src: heroImage,
+  width: 2560,
+  format: "webp",
+});
 import fernandoThumbnail from "@img/fernando-thumbnail.jpg";
+import FormattedDate from "./FormattedDate.astro";
 ---
 
-<header class="post-header" style={`--background-image: url(${backgroundImage.src})`}>
-	<NavBar />
-	<div class="header-content">
-		<h1>{title}</h1>
+<header
+  class="post-header"
+  style={`--background-image: url(${backgroundImage.src})`}
+>
+  <NavBar />
+  <div class="header-content">
+    <h1>{title}</h1>
 
-		<div class="article-details">
-			<div class="article-details-group">
-				<div class="article-detail author">
-					<Image src={fernandoThumbnail} alt="Profile picture of Fernando Paredes" width={120} loading="eager" />
-					<div class="text-wrapper">
-						<p class="label">Written by:</p>
-						<p class="value">Fernando Paredes</p>
-					</div>
-				</div>
-			</div>
+    <div class="article-details">
+      <div class="article-details-group">
+        <div class="article-detail author">
+          <Image
+            src={fernandoThumbnail}
+            alt="Profile picture of Fernando Paredes"
+            width={120}
+            layout="full-width"
+            priority
+          />
+          <div class="text-wrapper">
+            <p class="label">Written by:</p>
+            <p class="value">Fernando Paredes</p>
+          </div>
+        </div>
+      </div>
 
-			<div class="article-details-group">
-				<div class="article-detail date">
-					<div class="text-wrapper">
-						<p class="label">Updated on:</p>
-						<p class="value">5 Sep 2024</p>
-					</div>
-				</div>
+      <div class="article-details-group">
+        <div class="article-detail date">
+          <div class="text-wrapper">
+            <p class="label">Updated on:</p>
+            <p class="value"><FormattedDate date={pubDate} /></p>
+          </div>
+        </div>
 
-				<div class="article-detail reading-time">
-					<div class="text-wrapper">
-						<p class="label">Reading time:</p>
-						<p class="value">{readingTime} minutes</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+        <div class="article-detail reading-time">
+          <div class="text-wrapper">
+            <p class="label">Reading time:</p>
+            <p class="value">{readingTime} minutes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
 
 <style lang="scss" is:global>
-	.post-header {
-		height: 100vh;
-		--color-fg: var(--color-light);
-		color: var(--color-fg);
-		overflow: hidden;
-		background:
-			linear-gradient(to bottom, rgba(0,0,0,.4), rgba(0,0,0,.2)),
-			var(--background-image),
-			var(--color-primary-dark);
-		background-size: cover;
-		background-position: center;
-		margin-bottom: var(--spacer-lg);
-		-webkit-print-color-adjust: exact !important;   /* Chrome, Safari 6 – 15.3, Edge */
-		color-adjust: exact !important;                 /* Firefox 48 – 96 */
-		print-color-adjust: exact !important;           /* Firefox 97+, Safari 15.4+ */
+  .post-header {
+    height: 100vh;
+    --color-fg: var(--color-light);
+    color: var(--color-fg);
+    overflow: hidden;
+    background:
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
+      var(--background-image), var(--color-primary-dark);
+    background-size: cover;
+    background-position: center;
+    margin-bottom: var(--spacer-lg);
+    -webkit-print-color-adjust: exact !important; /* Chrome, Safari 6 – 15.3, Edge */
+    color-adjust: exact !important; /* Firefox 48 – 96 */
+    print-color-adjust: exact !important; /* Firefox 97+, Safari 15.4+ */
 
-		@media (min-width: 600px) {
-			height: auto;
-			margin-bottom: var(--spacer-xxl);
-		}
+    @media (min-width: 600px) {
+      height: auto;
+      margin-bottom: var(--spacer-xxl);
+    }
 
-		@media (min-width: 1000px) {
-			margin-bottom: calc(var(--spacer-xxl) * 1.2);
-		}
+    @media (min-width: 1000px) {
+      margin-bottom: calc(var(--spacer-xxl) * 1.2);
+    }
 
-		.header-content {
-			height: 100%;
-			display: flex;
-			flex-wrap: wrap;
-			flex-direction: column;
-			justify-content: center;
+    .header-content {
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
 
-			@media (min-width: 600px) {
-				padding: 150px 0 130px;
+      @media (min-width: 600px) {
+        padding: 150px 0 130px;
 
-				@media print {
-					padding: 160px 0 40px;
-				}
-			}
-		}
+        @media print {
+          padding: 160px 0 40px;
+        }
+      }
+    }
 
-		h1 {
-			margin: -10vh auto 0;
-			text-align: center;
-			font-size: calc(var(--h1-font-size) * .9);
-			padding: 0 var(--spacer-md);
-			max-width: var(--extra-wide-max-width);
+    h1 {
+      margin: -10vh auto 0;
+      text-align: center;
+      font-size: calc(var(--h1-font-size) * 0.9);
+      padding: 0 var(--spacer-md);
+      max-width: var(--extra-wide-max-width);
 
-			@media (min-width: 400px) {
-				font-size: var(--h1-font-size);
-			}
-		}
+      @media (min-width: 400px) {
+        font-size: var(--h1-font-size);
+      }
+    }
 
-		.article-details {
-			margin: var(--spacer-xxl) auto 0;
-			display: flex;
-			justify-content: center;
-			padding: 0 var(--spacer-md);
-			flex-direction: column;
-			width: fit-content;
+    .article-details {
+      margin: var(--spacer-xxl) auto 0;
+      display: flex;
+      justify-content: center;
+      padding: 0 var(--spacer-md);
+      flex-direction: column;
+      width: fit-content;
 
-			@media (min-width: 500px) {
-				flex-direction: row;
-			}
+      @media (min-width: 500px) {
+        flex-direction: row;
+      }
 
-			.article-details-group {
-				display: flex;
-				margin-bottom: var(--spacer-lg);
-				margin-right: 0;
-				width: fit-content;
+      .article-details-group {
+        display: flex;
+        margin-bottom: var(--spacer-lg);
+        margin-right: 0;
+        width: fit-content;
 
-				@media (min-width: 500px) {
-					margin-right: var(--spacer-xl);
+        @media (min-width: 500px) {
+          margin-right: var(--spacer-xl);
 
-					&:last-child {
-						margin-right: 0;
-					}
-				}
-			}
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
 
-			.article-detail {
-				display: flex;
-				margin-right: var(--spacer-xl);
-				width: fit-content;
+      .article-detail {
+        display: flex;
+        margin-right: var(--spacer-xl);
+        width: fit-content;
 
-				@media (min-width: 500px) {
-					margin-right: var(--spacer-xl);
-				}
+        @media (min-width: 500px) {
+          margin-right: var(--spacer-xl);
+        }
 
-				&:last-child {
-					margin-right: 0;
-				}
+        &:last-child {
+          margin-right: 0;
+        }
 
-				img {
-					width: 45px;
-					height: 45px;
-					border-radius: 60px;
-					border: 2px solid var(--color-fg);
-					flex-shrink: 0;
-					margin-right: var(--spacer-sm);
+        img {
+          width: 45px;
+          height: 45px;
+          border-radius: 60px;
+          border: 2px solid var(--color-fg);
+          flex-shrink: 0;
+          margin-right: var(--spacer-sm);
 
-					@media (min-width: 500px) {
-						width: 60px;
-						height: 60px;
-						margin-right: var(--spacer-md);
-					}
-				}
+          @media (min-width: 500px) {
+            width: 60px;
+            height: 60px;
+            margin-right: var(--spacer-md);
+          }
+        }
 
-				.text-wrapper {
-					display: flex;
-					flex-direction: column;
-					justify-content: center;
+        .text-wrapper {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
 
-					.label {
-						font-size: .8em;
-						margin: 0 0 .2em 0;
-					}
+          .label {
+            font-size: 0.8em;
+            margin: 0 0 0.2em 0;
+          }
 
-					.value {
-						margin: 0;
-					}
-				}
-			}
-		}
-	}
+          .value {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
 </style>

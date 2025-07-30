@@ -1,135 +1,141 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/head/BaseHead.astro';
-import Footer from '../components/Footer.astro';
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/head/BaseHead.astro";
+import Footer from "../components/Footer.astro";
 import HeaderPost from "../components/HeaderPost.astro";
 
-type Props = CollectionEntry<'blog'>['data'] & {
-	readingTime: number;
+type Props = CollectionEntry<"blog">["data"] & {
+  readingTime: number;
 };
 
 const { title, description, pubDate, heroImage, readingTime } = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description}/>
-	</head>
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
 
-	<body>
-		<HeaderPost title={title} pubDate={pubDate} heroImage={heroImage} readingTime={readingTime} />
-		<main>
-			<article>
-				<div class="content">
-					<slot />
-				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
+  <body>
+    <HeaderPost
+      title={title}
+      pubDate={pubDate}
+      heroImage={heroImage}
+      readingTime={readingTime}
+    />
+    <main>
+      <article>
+        <div class="content">
+          <slot />
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
 </html>
 
-
 <style is:global lang="scss">
-	.content{
-		--content-font-size: 18px;
+  .content {
+    --content-font-size: 18px;
 
-		width: 100%;
-		font-size: var(--content-font-size);
-		line-height: 1.5;
-		margin-bottom: var(--spacer-lg);
+    width: 100%;
+    font-size: var(--content-font-size);
+    line-height: 1.5;
+    margin-bottom: var(--spacer-lg);
 
-		@media (min-width: 700px) {
-			font-size: calc(var(--content-font-size) * 1.1);
-			margin-bottom: var(--spacer-xl);
-		}
+    @media (min-width: 700px) {
+      font-size: calc(var(--content-font-size) * 1.1);
+      margin-bottom: var(--spacer-xl);
+    }
 
-		@media (min-width: 1000px) {
-			--extra-wide-max-width: 900px;
-			line-height: 1.6;
-			margin-bottom: calc(var(--spacer-xxl) * 1.8);
-		}
+    @media (min-width: 1000px) {
+      --extra-wide-max-width: 900px;
+      line-height: 1.6;
+      margin-bottom: calc(var(--spacer-xxl) * 1.8);
+    }
 
-		& > * {
-			max-width: var(--paragraph-max-width);
-			padding: 0 var(--paragraph-padding);
-			margin: 0 auto var(--paragraph-margin);
-			/*content-visibility: auto;*/
-		}
+    & > * {
+      max-width: var(--paragraph-max-width);
+      padding: 0 var(--paragraph-padding);
+      margin: 0 auto var(--paragraph-margin);
+      /*content-visibility: auto;*/
+    }
 
-		h2 {
-			font-size: 2.5rem;
-			margin-top: calc(var(--paragraph-margin) * 3);
-			margin-bottom: var(--paragraph-margin);
-			line-height: 1.2;
+    h2 {
+      font-size: 2.5rem;
+      margin-top: calc(var(--paragraph-margin) * 3);
+      margin-bottom: var(--paragraph-margin);
+      line-height: 1.2;
 
-			@media (min-width: 700px) {
-				font-size: 3rem;
-				margin-top: calc(var(--paragraph-margin) * 4);
-			}
+      @media (min-width: 700px) {
+        font-size: 3rem;
+        margin-top: calc(var(--paragraph-margin) * 4);
+      }
 
-			@media (min-width: 900px) {
-				font-size: 3.3rem;
-			}
-		}
+      @media (min-width: 900px) {
+        font-size: 3.3rem;
+      }
+    }
 
-		ul, ol {
-			padding-left: var(--spacer-xl);
+    ul,
+    ol {
+      padding-left: var(--spacer-xl);
 
-			li {
-				margin-bottom: calc(var(--paragraph-margin) * .5);
+      li {
+        margin-bottom: calc(var(--paragraph-margin) * 0.6);
+        padding-left: var(--spacer-sm);
 
-				&:last-child {
-					margin-bottom: 0;
-				}
-			}
-		}
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
 
-		p > img{
-			margin: 0 calc(var(--paragraph-padding) * -1);
-			width: calc(100% + (var(--paragraph-padding) * 2));
-			max-width: calc(100% + (var(--paragraph-padding) * 2));
+    p > img {
+      margin: 0 calc(var(--paragraph-padding) * -1);
+      width: calc(100% + (var(--paragraph-padding) * 2));
+      max-width: calc(100% + (var(--paragraph-padding) * 2));
 
-			@media (min-width: 900px) {
-				margin: 0 calc(var(--spacer-xl) * -1);
-				width: calc(100% + (var(--spacer-xl) * 2));
-				max-width: calc(100% + (var(--spacer-xl) * 2));
-			}
-		}
+      @media (min-width: 900px) {
+        margin: 0 calc(var(--spacer-xl) * -1);
+        width: calc(100% + (var(--spacer-xl) * 2));
+        max-width: calc(100% + (var(--spacer-xl) * 2));
+      }
+    }
 
-		figure {
-			padding: 0;
-			margin-top: calc(var(--paragraph-margin) * 2);
-			margin-bottom: calc(var(--paragraph-margin) * 2);
-			max-width: var(--extra-wide-max-width);
+    figure {
+      padding: 0;
+      margin-top: calc(var(--paragraph-margin) * 2);
+      margin-bottom: calc(var(--paragraph-margin) * 2);
+      max-width: var(--extra-wide-max-width);
+      text-align: center;
 
-			@media (min-width: 900px) {
-				margin-bottom: calc(var(--paragraph-margin) * 1.5);
-				max-width: var(--extra-wide-max-width);
-			}
+      @media (min-width: 900px) {
+        margin-bottom: calc(var(--paragraph-margin) * 1.5);
+        max-width: var(--extra-wide-max-width);
+      }
 
-			img {
-				max-width: 100%;
-			}
+      img {
+        max-width: 100%;
+      }
 
-			figcaption {
-				color: var(--color-fg-soft);
-				font-size: .9em;
-				text-align: center;
-				padding: 0 var(--paragraph-padding);
+      figcaption {
+        color: var(--color-fg-soft);
+        font-size: 0.9em;
+        padding: 0 var(--paragraph-padding);
 
-				@media (min-width: 450px) {
-					padding: 0 var(--spacer-lg) ;
-				}
+        @media (min-width: 450px) {
+          padding: 0 var(--spacer-lg);
+        }
 
-				@media (min-width: 700px) {
-					padding: 0 var(--spacer-xl);
-				}
+        @media (min-width: 700px) {
+          padding: 0 var(--spacer-xl);
+        }
 
-				@media (min-width: 900px) {
-					padding: 0 var(--spacer-xxl);
-				}
-			}
-		}
-	}
+        @media (min-width: 900px) {
+          padding: 0 var(--spacer-xxl);
+        }
+      }
+    }
+  }
 </style>
