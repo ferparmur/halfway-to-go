@@ -1,7 +1,7 @@
-@import "global/colors";
-@import "global/normalize";
-@import "global/layout";
-@import "global/typography";
+@use "global/_colors";
+@use "global/_normalize";
+@use "global/_layout";
+@use "global/_typography";
 
 * {
   box-sizing: border-box;
